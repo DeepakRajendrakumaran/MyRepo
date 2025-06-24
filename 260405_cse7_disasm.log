@@ -1,0 +1,765 @@
+; Assembly listing for method System.Speech.Internal.SrgsCompiler.Backend:InitFromBinaryGrammar(System.Speech.Internal.StreamMarshaler):this (FullOpts)
+; Emitting BLENDED_CODE for generic X64 on Windows
+; FullOpts code
+; ReadyToRun compilation
+; optimized code
+; rbp based frame
+; fully interruptible
+; No matching PGO data
+; 0 inlinees with PGO data; 23 single block inlinees; 4 inlinees without PGO data
+; Final local variable assignments
+;
+;  V00 this         [V00,T07] ( 24, 74.50)     ref  ->  rbx         this class-hnd single-def <System.Speech.Internal.SrgsCompiler.Backend>
+;  V01 arg1         [V01,T73] (  3,  3   )     ref  ->  rdx         class-hnd single-def <System.Speech.Internal.StreamMarshaler>
+;  V02 loc0         [V02,T55] (  8,  8   )  struct (120) [rbp-0xC8]  do-not-enreg[SF] must-init <System.Speech.Internal.SrgsCompiler.CfgGrammar+CfgHeader>
+;  V03 loc1         [V03,T36] ( 12, 22   )     ref  ->  r12         class-hnd exact single-def <<unknown class>>
+;* V04 loc2         [V04    ] (  0,  0   )     ref  ->  zero-ref    class-hnd exact single-def <<unknown class>>
+;* V05 loc3         [V05    ] (  0,  0   )     int  ->  zero-ref   
+;  V06 loc4         [V06,T10] (  6, 57   )     ref  ->  [rbp-0x2E8]  class-hnd exact spill-single-def <<unknown class>>
+;  V07 loc5         [V07,T52] (  3,  9   )   ubyte  ->  [rbp-0xCC] 
+;* V08 loc6         [V08    ] (  0,  0   )  struct ( 8) zero-ref    ld-addr-op <System.Speech.Internal.SrgsCompiler.CfgArc>
+;  V09 loc7         [V09,T48] (  4, 11   )     ref  ->  [rbp-0x2F0]  class-hnd <System.Speech.Internal.SrgsCompiler.State>
+;  V10 loc8         [V10    ] (  5,  6.50)  struct (40) [rbp-0xF8]  do-not-enreg[XHS] must-init addr-exposed hidden-struct-arg ld-addr-op <System.Collections.Generic.SortedDictionary`2+Enumerator[int,System.Speech.Internal.SrgsCompiler.Rule]>
+;  V11 loc9         [V11    ] (  5,  9   )  struct (16) [rbp-0x108]  do-not-enreg[XHS] must-init addr-exposed hidden-struct-arg ld-addr-op <System.Collections.Generic.KeyValuePair`2[int,System.Speech.Internal.SrgsCompiler.Rule]>
+;  V12 loc10        [V12,T54] (  5,  8.50)     ref  ->  [rbp-0x2F8]  class-hnd <System.Speech.Internal.SrgsCompiler.Rule>
+;* V13 loc11        [V13,T79] (  0,  0   )     int  ->  zero-ref   
+;* V14 loc12        [V14    ] (  0,  0   )  struct ( 8) zero-ref    ld-addr-op <System.Speech.Internal.SrgsCompiler.CfgArc>
+;  V15 loc13        [V15,T37] (  8, 18   )     int  ->  [rbp-0x10C]  spill-single-def
+;  V16 loc14        [V16,T39] (  5, 16   )     ref  ->  [rbp-0x300]  class-hnd <System.Speech.Internal.SrgsCompiler.Arc>
+;  V17 loc15        [V17,T50] (  3, 10   )     ref  ->  [rbp-0x308]  class-hnd <System.Speech.Internal.SrgsCompiler.State>
+;* V18 loc16        [V18    ] (  0,  0   )   float  ->  zero-ref   
+;* V19 loc17        [V19    ] (  0,  0   )     int  ->  zero-ref   
+;* V20 loc18        [V20    ] (  0,  0   )     int  ->  zero-ref   
+;  V21 loc19        [V21,T74] (  2,  4   )     ref  ->  [rbp-0x310]  class-hnd exact spill-single-def <System.Speech.Internal.SrgsCompiler.Rule>
+;  V22 loc20        [V22,T70] (  3,  6   )     int  ->  rcx        
+;* V23 loc21        [V23    ] (  0,  0   )     int  ->  zero-ref   
+;* V24 loc22        [V24,T78] (  0,  0   )     int  ->  zero-ref   
+;  V25 loc23        [V25,T08] (  5, 65   )     int  ->  rdi        
+;* V26 loc24        [V26    ] (  0,  0   )  struct ( 8) zero-ref    ld-addr-op <System.Speech.Internal.SrgsCompiler.CfgArc>
+;  V27 loc25        [V27,T30] (  2, 32   )  struct (32) [rbp-0x130]  do-not-enreg[SF] <System.Speech.Internal.SrgsCompiler.CfgSemanticTag>
+;* V28 loc26        [V28    ] (  0,  0   )     ref  ->  zero-ref    class-hnd exact <System.Speech.Internal.SrgsCompiler.Tag>
+;  V29 OutArgs      [V29    ] (  1,  1   )  struct (80) [rsp+0x00]  do-not-enreg[XS] addr-exposed "OutgoingArgSpace" <UNNAMED>
+;* V30 tmp1         [V30    ] (  0,  0   )     ref  ->  zero-ref    class-hnd exact "NewArr temp" <<unknown class>>
+;  V31 tmp2         [V31,T56] (  4,  8   )     ref  ->  [rbp-0x318]  class-hnd exact spill-single-def "NewObj constructor temp" <<unknown class>>
+;  V32 tmp3         [V32,T77] (  1,  2   )  struct (120) [rbp-0x1A8]  do-not-enreg[HS] must-init hidden-struct-arg "location for address-of(RValue)" <System.Speech.Internal.SrgsCompiler.CfgGrammar+CfgHeader>
+;* V33 tmp4         [V33    ] (  0,  0   )     ref  ->  zero-ref    class-hnd exact "NewArr temp" <<unknown class>>
+;  V34 tmp5         [V34,T00] ( 10,288   )     ref  ->  [rbp-0x320]  class-hnd exact spill-single-def "NewObj constructor temp" <System.Speech.Internal.SrgsCompiler.Tag>
+;  V35 tmp6         [V35,T22] (  2, 32   )   byref  ->  [rbp-0x328]  spill-single-def "non-inline candidate call"
+;  V36 tmp7         [V36,T23] (  2, 32   )     ref  ->  [rbp-0x330]  class-hnd spill-single-def "non-inline candidate call" <System.Speech.Internal.StringBlob>
+;* V37 tmp8         [V37    ] (  0,  0   )     ref  ->  zero-ref    class-hnd "non-inline candidate call" <System.Speech.Internal.StringBlob>
+;  V38 tmp9         [V38,T24] (  2, 32   )   byref  ->  [rbp-0x338]  spill-single-def "non-inline candidate call"
+;  V39 tmp10        [V39,T25] (  2, 32   )     ref  ->  [rbp-0x340]  class-hnd spill-single-def "non-inline candidate call" <System.Speech.Internal.StringBlob>
+;* V40 tmp11        [V40    ] (  0,  0   )     ref  ->  zero-ref    class-hnd "non-inline candidate call" <System.Speech.Internal.StringBlob>
+;  V41 tmp12        [V41,T80] (  4,  8   )   float  ->  mm6        
+;  V42 tmp13        [V42,T57] (  4,  8   )     int  ->  [rbp-0x1AC] 
+;  V43 tmp14        [V43,T71] (  3,  6   )     int  ->  [rbp-0x1B0] 
+;* V44 tmp15        [V44    ] (  0,  0   )     int  ->  zero-ref   
+;* V45 tmp16        [V45    ] (  0,  0   )   float  ->  zero-ref   
+;* V46 tmp17        [V46    ] (  0,  0   )     int  ->  zero-ref   
+;* V47 tmp18        [V47    ] (  0,  0   )   float  ->  zero-ref   
+;  V48 tmp19        [V48,T72] (  3,  6   )     int  ->  [rbp-0x1B4] 
+;  V49 tmp20        [V49,T41] (  3, 12   )     ref  ->  [rbp-0x348]  class-hnd exact spill-single-def "NewObj constructor temp" <System.Speech.Internal.SrgsCompiler.Arc>
+;* V50 tmp21        [V50    ] (  0,  0   )     ref  ->  zero-ref    class-hnd "impAppendStmt" <System.Collections.Generic.List`1[System.Speech.Internal.SrgsCompiler.Rule]>
+;  V51 tmp22        [V51,T42] (  3, 12   )     ref  ->  [rbp-0x350]  class-hnd exact spill-single-def "NewObj constructor temp" <System.Speech.Internal.SrgsCompiler.Arc>
+;  V52 tmp23        [V52,T43] (  3, 12   )     ref  ->  [rbp-0x358]  class-hnd exact spill-single-def "NewObj constructor temp" <System.Speech.Internal.SrgsCompiler.State>
+;  V53 tmp24        [V53,T44] (  3, 12   )     ref  ->  [rbp-0x360]  class-hnd exact spill-single-def "NewObj constructor temp" <System.Speech.Internal.SrgsCompiler.State>
+;* V54 tmp25        [V54    ] (  0,  0   )     ref  ->  zero-ref    class-hnd "impAppendStmt" <System.Collections.Generic.List`1[System.Speech.Internal.SrgsCompiler.Rule]>
+;* V55 tmp26        [V55    ] (  0,  0   )     ref  ->  zero-ref    class-hnd "impAppendStmt" <System.Collections.Generic.List`1[System.Speech.Internal.SrgsCompiler.Rule]>
+;  V56 tmp27        [V56,T68] (  6,  6   )  struct (120) [rbp-0x230]  do-not-enreg[HS] must-init hidden-struct-arg "Inline return value spill temp" <System.Speech.Internal.SrgsCompiler.CfgGrammar+CfgHeader>
+;  V57 tmp28        [V57    ] (  2,  2   )     ref  ->  [rbp-0x238]  do-not-enreg[X] must-init addr-exposed ld-addr-op class-hnd "Inline stloc first use temp" <<unknown class>>
+;  V58 tmp29        [V58,T45] (  3, 12   )     int  ->  [rbp-0x23C]  spill-single-def "dup spill"
+;  V59 tmp30        [V59,T59] (  2,  8   )     ref  ->  rdx         class-hnd exact "Inlining Arg" <System.Speech.Internal.SrgsCompiler.State>
+;  V60 tmp31        [V60,T46] (  3, 12   )     int  ->  [rbp-0x240]  spill-single-def "dup spill"
+;  V61 tmp32        [V61,T60] (  2,  8   )     ref  ->  rdx         class-hnd exact "Inlining Arg" <System.Speech.Internal.SrgsCompiler.State>
+;  V62 tmp33        [V62,T61] (  2,  8   )     ref  ->  [rbp-0x368]  class-hnd spill-single-def "Inlining Arg" <System.Speech.Internal.StringBlob>
+;  V63 tmp34        [V63,T47] (  3, 12   )     int  ->  rcx         "dup spill"
+;  V64 tmp35        [V64,T62] (  2,  8   )   byref  ->  [rbp-0x370]  spill-single-def "Inlining Arg"
+;* V65 tmp36        [V65    ] (  0,  0   )   byref  ->  zero-ref    "Inlining Arg"
+;  V66 tmp37        [V66,T03] (  4,112   )     ref  ->  [rbp-0x378]  class-hnd spill-single-def "Inlining Arg" <System.Speech.Internal.SrgsCompiler.Arc>
+;  V67 tmp38        [V67,T14] (  3, 48   )     ref  ->  [rbp-0x380]  class-hnd exact spill-single-def "NewObj constructor temp" <System.Collections.ObjectModel.Collection`1[System.Speech.Internal.SrgsCompiler.Tag]>
+;* V68 tmp39        [V68    ] (  0,  0   )   byref  ->  zero-ref    "Inlining Arg"
+;  V69 tmp40        [V69,T04] (  4,112   )     ref  ->  [rbp-0x388]  class-hnd spill-single-def "Inlining Arg" <System.Speech.Internal.SrgsCompiler.Arc>
+;  V70 tmp41        [V70,T15] (  3, 48   )     ref  ->  [rbp-0x390]  class-hnd exact spill-single-def "NewObj constructor temp" <System.Collections.ObjectModel.Collection`1[System.Speech.Internal.SrgsCompiler.Tag]>
+;  V71 tmp42        [V71,T34] (  3, 24   )     int  ->  rax         "Inline return value spill temp"
+;  V72 tmp43        [V72,T16] (  3, 48   )     int  ->  rdx         "Inlining Arg"
+;  V73 tmp44        [V73,T35] (  3, 24   )     int  ->  rax         "Inline return value spill temp"
+;  V74 tmp45        [V74,T17] (  3, 48   )     int  ->  rdx         "Inlining Arg"
+;* V75 tmp46        [V75    ] (  0,  0   )   byref  ->  zero-ref    "Inlining Arg"
+;  V76 tmp47        [V76,T53] (  3,  9   )     int  ->  [rbp-0x244]  "field V08._flag1 (fldOffset=0x0)" P-INDEP
+;* V77 tmp48        [V77    ] (  0,  0   )     int  ->  zero-ref    "field V08._flag2 (fldOffset=0x4)" P-INDEP
+;  V78 tmp49        [V78,T32] ( 10, 28   )     int  ->  [rbp-0x248]  spill-single-def "field V14._flag1 (fldOffset=0x0)" P-INDEP
+;  V79 tmp50        [V79,T65] (  2,  8   )     int  ->  [rbp-0x24C]  spill-single-def "field V14._flag2 (fldOffset=0x4)" P-INDEP
+;  V80 tmp51        [V80,T66] (  2,  8   )     int  ->  rax         "field V26._flag1 (fldOffset=0x0)" P-INDEP
+;* V81 tmp52        [V81    ] (  0,  0   )     int  ->  zero-ref    "field V26._flag2 (fldOffset=0x4)" P-INDEP
+;  V82 tmp53        [V82,T49] (  4, 10   )     ref  ->  rsi         single-def "V02.[024..032)"
+;  V83 tmp54        [V83,T51] (  4,  9   )     ref  ->  rdi         single-def "V02.[032..040)"
+;  V84 tmp55        [V84,T13] (  4, 49   )     ref  ->  r14         single-def "V02.[040..048)"
+;  V85 tmp56        [V85,T76] (  3,  2.50)     ref  ->  r15         single-def "V02.[056..064)"
+;  V86 tmp57        [V86,T12] (  4, 56   )     int  ->  [rbp-0x250]  spill-single-def "V27.[012..016)"
+;  V87 tmp58        [V87,T21] (  3, 40   )     int  ->  [rbp-0x254]  spill-single-def "V27.[020..024)"
+;  V88 tmp59        [V88,T01] (  4,128   )   byref  ->  rax         "Spilling address for field-by-field copy"
+;  V89 tmp60        [V89,T02] (  4,128   )   byref  ->  rcx         "Spilling address for field-by-field copy"
+;  V90 tmp61        [V90    ] (  2,  4   )  struct (120) [rbp-0x2D0]  do-not-enreg[XS] must-init addr-exposed "by-value struct argument" <System.Speech.Internal.SrgsCompiler.CfgGrammar+CfgHeader>
+;  V91 tmp62        [V91,T75] (  2,  4   )     int  ->  rax         "argument with side effect"
+;  V92 tmp63        [V92,T33] (  3, 24   )   byref  ->  rdx         "BlockOp address local"
+;  V93 tmp64        [V93,T63] (  2,  8   )     ref  ->  rdx         "argument with side effect"
+;  V94 tmp65        [V94,T64] (  2,  8   )     ref  ->  [rbp-0x398]  spill-single-def "argument with side effect"
+;  V95 tmp66        [V95,T05] (  3, 96   )     int  ->  rcx         "index expr"
+;  V96 tmp67        [V96,T06] (  3, 96   )     int  ->  rcx         "index expr"
+;  V97 tmp68        [V97,T26] (  2, 32   )     ref  ->  rdx         "argument with side effect"
+;  V98 tmp69        [V98,T27] (  2, 32   )     ref  ->  [rbp-0x3A0]  spill-single-def "argument with side effect"
+;  V99 tmp70        [V99,T28] (  2, 32   )     ref  ->  rdx         "argument with side effect"
+;  V100 tmp71       [V100,T29] (  2, 32   )     ref  ->  [rbp-0x3A8]  spill-single-def "argument with side effect"
+;  V101 cse0        [V101,T40] (  6, 12   )   byref  ->  rax         multi-def "CSE #06: conservative"
+;  V102 cse1        [V102,T69] (  3,  6   )   byref  ->  rax         "CSE #12: conservative"
+;  V103 cse2        [V103,T09] (  8, 64   )     ref  ->  rcx         multi-def "CSE #17: aggressive"
+;  V104 cse3        [V104,T18] (  3, 48   )    long  ->  rax         "CSE #19: moderate"
+;  V105 cse4        [V105,T31] (  2, 32   )     int  ->  rax         "CSE #14: aggressive"
+;  V106 cse5        [V106,T38] (  7, 16.50)     int  ->  r13         "CSE #01: moderate"
+;  V107 cse6        [V107,T11] (  5, 56   )     int  ->  [rbp-0x2D4]  multi-def "CSE #15: aggressive"
+;  V108 cse7        [V108,T58] (  4,  8   )     int  ->  registers   multi-def "CSE #07: moderate"
+;  V109 rat0        [V109,T20] ( 17, 45   )    long  ->  [rbp-0x2E0]  "Widened IV V13"
+;  V110 rat1        [V110,T19] (  7, 46   )    long  ->  r12         "Widened IV V24"
+;  V111 rat2        [V111,T67] (  2,  8   )     int  ->   r9         "ReplaceWithLclVar is creating a new local variable"
+;
+; Lcl frame size = 968
+
+G_M49990_IG01:  ;; offset=0x0000
+       push     rbp
+       push     r15
+       push     r14
+       push     r13
+       push     r12
+       push     rdi
+       push     rsi
+       push     rbx
+       sub      rsp, 968
+       movaps   xmmword ptr [rsp+0x3B0], xmm6
+       lea      rbp, [rsp+0x400]
+       xorps    xmm4, xmm4
+       movaps   xmmword ptr [rbp-0x2D0], xmm4
+       mov      rax, -624
+       movaps   xmmword ptr [rbp+rax-0x50], xmm4
+       movaps   xmmword ptr [rbp+rax-0x40], xmm4
+       movaps   xmmword ptr [rbp+rax-0x30], xmm4
+       add      rax, 48
+       jne      SHORT  -5 instr
+       mov      rbx, rcx
+						;; size=79 bbWeight=1 PerfScore 20.83
+G_M49990_IG02:  ;; offset=0x004F
+       lea      rcx, [rbp-0x238]
+       mov      qword ptr [rsp+0x20], rcx
+       lea      rcx, [rbp-0x230]
+       mov      r8d, 1
+       mov      r9d, 1
+       call     [<unknown method>]
+       xor      rcx, rcx
+       mov      gword ptr [rbp-0x238], rcx
+       mov      rsi, gword ptr [rbp-0x218]
+       mov      rdi, gword ptr [rbp-0x210]
+       mov      r14, gword ptr [rbp-0x208]
+       mov      r15, gword ptr [rbp-0x1F8]
+       lea      rcx, bword ptr [rbp-0xC8]
+       lea      rdx, [rbp-0x230]
+       mov      r8d, 120
+       call     [CORINFO_HELP_BULK_WRITEBARRIER]
+       lea      rcx, bword ptr [rbx+0x08]
+       mov      rdx, gword ptr [rbp-0xC8]
+       call     [CORINFO_HELP_ASSIGN_REF]
+       lea      rcx, bword ptr [rbx+0x10]
+       mov      rdx, gword ptr [rbp-0xC0]
+       call     [CORINFO_HELP_ASSIGN_REF]
+       mov      ecx, dword ptr [rbp-0x80]
+       mov      dword ptr [rbx+0x60], ecx
+       mov      r13d, dword ptr [rsi+0x08]
+       mov      ecx, r13d
+       call     [CORINFO_HELP_READYTORUN_NEWARR_1]
+       mov      r12, rax
+       call     [CORINFO_HELP_READYTORUN_NEW]
+       mov      gword ptr [rbp-0x318], rax
+       mov      rcx, rax
+       call     [<unknown method>]
+       lea      rcx, bword ptr [rbp-0x2D0]
+       lea      rdx, [rbp-0xC8]
+       mov      r8d, 120
+       call     [CORINFO_HELP_BULK_WRITEBARRIER]
+       mov      rcx, gword ptr [rbx+0x20]
+       lea      r11, [(reloc 0x400000000043ab58)]      ; function address
+       cmp      dword ptr [rcx], ecx
+       call     [r11]<unknown method>
+       mov      dword ptr [rsp+0x28], eax
+       lea      r8, [rbp-0x2D0]
+       lea      rdx, [rbp-0x1A8]
+       mov      r9, r12
+       mov      rax, gword ptr [rbp-0x318]
+       mov      gword ptr [rsp+0x20], rax
+       mov      rcx, rbx
+       call     [<unknown method>]
+       mov      ecx, r13d
+						;; size=265 bbWeight=1 PerfScore 59.25
+G_M49990_IG03:  ;; offset=0x0158
+       call     [CORINFO_HELP_READYTORUN_NEWARR_1]
+       mov      gword ptr [rbp-0x2E8], rax
+       mov      dword ptr [rbp-0xCC], 1
+       xor      r10d, r10d
+       mov      dword ptr [rbp-0x244], r10d
+       xor      r9, r9
+       mov      gword ptr [rbp-0x2F0], r9
+       lea      rdx, [rbp-0xF8]
+       mov      rcx, gword ptr [rbp-0x318]
+       lea      r11, [(reloc 0x400000000043ab98)]      ; function address
+       call     [r11]<unknown method>
+       lea      rcx, [rbp-0xF8]
+       mov      rdx, qword ptr [(reloc 0x400000000043abb8)]      ; System.Collections.Generic.SortedDictionary`2+Enumerator[int,System.Speech.Internal.SrgsCompiler.Rule]
+       call     [<unknown method>]
+       test     eax, eax
+       je       G_M49990_IG32
+						;; size=95 bbWeight=1 PerfScore 19.25
+G_M49990_IG04:  ;; offset=0x01B7
+       lea      rcx, [rbp-0xF8]
+       lea      rdx, [rbp-0x108]
+       mov      r8, qword ptr [(reloc 0x400000000043abb8)]      ; System.Collections.Generic.SortedDictionary`2+Enumerator[int,System.Speech.Internal.SrgsCompiler.Rule]
+       call     [<unknown method>]
+       lea      rcx, [rbp-0x108]
+       mov      rdx, qword ptr [(reloc 0x400000000043ac78)]      ; System.Collections.Generic.KeyValuePair`2[int,System.Speech.Internal.SrgsCompiler.Rule]
+       call     [<unknown method>]
+       mov      r8d, 1
+       cmp      r13d, r8d
+       jg       SHORT G_M49990_IG06
+       jmp      G_M49990_IG32
+						;; size=63 bbWeight=0.50 PerfScore 7.50
+G_M49990_IG05:  ;; offset=0x01F6
+       mov      r8, rax
+       mov      rax, gword ptr [rbp-0x2F8]
+						;; size=10 bbWeight=2 PerfScore 2.50
+G_M49990_IG06:  ;; offset=0x0200
+       mov      qword ptr [rbp-0x2E0], r8
+       lea      rdx, bword ptr [rsi+8*r8+0x10]
+       mov      r10d, dword ptr [rdx]
+       mov      dword ptr [rbp-0x248], r10d
+       mov      r9d, dword ptr [rdx+0x04]
+       mov      dword ptr [rbp-0x24C], r9d
+       test     r10b, 1
+       jne      SHORT G_M49990_IG08
+						;; size=39 bbWeight=4 PerfScore 37.00
+G_M49990_IG07:  ;; offset=0x0227
+       mov      gword ptr [rbp-0x2F8], rax
+       jmp      SHORT G_M49990_IG09
+						;; size=9 bbWeight=2 PerfScore 6.00
+G_M49990_IG08:  ;; offset=0x0230
+       mov      gword ptr [rbp-0x2F8], rax
+       mov      r16, gword ptr [rax+0x38]
+       mov      gword ptr [rbp-0x398], r16
+       mov      edx, r10d
+       shr      edx, 5
+       and      edx, 0x3FFFFF
+       mov      rcx, gword ptr [rbx+0x20]
+       lea      r11, [(reloc 0x400000000043ad18)]      ; function address
+       cmp      dword ptr [rcx], ecx
+       call     [r11]<unknown method>
+       mov      rdx, rax
+       mov      rcx, gword ptr [rbp-0x398]
+       lea      r11, [(reloc 0x400000000043a2c0)]      ; function address
+       cmp      dword ptr [rcx], ecx
+       call     [r11]<unknown method>
+						;; size=70 bbWeight=2 PerfScore 42.50
+G_M49990_IG09:  ;; offset=0x0276
+       lea      rcx, [rbp-0x108]
+       mov      rdx, qword ptr [(reloc 0x400000000043ac78)]      ; System.Collections.Generic.KeyValuePair`2[int,System.Speech.Internal.SrgsCompiler.Rule]
+       call     [<unknown method>]
+       cmp      eax, dword ptr [rbp-0x2E0]
+       jne      SHORT G_M49990_IG11
+						;; size=28 bbWeight=4 PerfScore 34.00
+G_M49990_IG10:  ;; offset=0x0292
+       lea      rcx, [rbp-0x108]
+       mov      rdx, qword ptr [(reloc 0x400000000043ac78)]      ; System.Collections.Generic.KeyValuePair`2[int,System.Speech.Internal.SrgsCompiler.Rule]
+       call     [<unknown method>]
+       mov      gword ptr [rbp-0x2F8], rax
+       lea      rcx, [rbp-0xF8]
+       mov      rdx, qword ptr [(reloc 0x400000000043abb8)]      ; System.Collections.Generic.SortedDictionary`2+Enumerator[int,System.Speech.Internal.SrgsCompiler.Rule]
+       call     [<unknown method>]
+       test     eax, eax
+       je       SHORT G_M49990_IG11
+       lea      rcx, [rbp-0xF8]
+       lea      rdx, [rbp-0x108]
+       mov      r8, qword ptr [(reloc 0x400000000043abb8)]      ; System.Collections.Generic.SortedDictionary`2+Enumerator[int,System.Speech.Internal.SrgsCompiler.Rule]
+       call     [<unknown method>]
+						;; size=78 bbWeight=2 PerfScore 38.50
+G_M49990_IG11:  ;; offset=0x02E0
+       mov      r10d, dword ptr [rbp-0x244]
+       and      r10d, 2
+       or       r10d, dword ptr [rbp-0xCC]
+       jne      G_M49990_IG17
+						;; size=24 bbWeight=4 PerfScore 17.00
+G_M49990_IG12:  ;; offset=0x02F8
+       mov      ecx, dword ptr [rbp-0x24C]
+       shr      ecx, 8
+       and      ecx, 0x3FFFFF
+       mov      dword ptr [rbp-0x10C], ecx
+       xor      rdx, rdx
+       cmp      gword ptr [rbp-0x2F0], 0
+       je       G_M49990_IG15
+						;; size=37 bbWeight=4 PerfScore 24.00
+G_M49990_IG13:  ;; offset=0x031D
+       test     ecx, ecx
+       je       G_M49990_IG15
+       mov      edx, dword ptr [r12+0x08]
+       cmp      ecx, edx
+       jae      G_M49990_IG54
+       mov      edx, ecx
+       cmp      gword ptr [r12+8*rdx+0x10], 0
+       jne      SHORT G_M49990_IG14
+       call     [CORINFO_HELP_READYTORUN_NONGCSTATIC_BASE]
+       mov      ecx, dword ptr [rax]
+       inc      ecx
+       mov      dword ptr [rbp-0x240], ecx
+       mov      dword ptr [rax], ecx
+       call     [CORINFO_HELP_READYTORUN_NEW]
+       mov      gword ptr [rbp-0x358], rax
+       mov      rcx, rax
+       mov      rdx, gword ptr [rbp-0x2F8]
+       mov      r8d, dword ptr [rbp-0x240]
+       mov      r9d, dword ptr [rbp-0x10C]
+       call     [System.Speech.Internal.SrgsCompiler.State:.ctor(System.Speech.Internal.SrgsCompiler.Rule,uint,int):this]
+       mov      ecx, dword ptr [rbp-0x10C]
+       lea      rcx, bword ptr [r12+8*rcx+0x10]
+       mov      rdx, gword ptr [rbp-0x358]
+       call     [CORINFO_HELP_ASSIGN_REF]
+       mov      ecx, dword ptr [rbp-0x10C]
+       mov      rdx, gword ptr [r12+8*rcx+0x10]
+       mov      rcx, gword ptr [rbx+0x18]
+       cmp      dword ptr [rcx], ecx
+       call     [System.Speech.Internal.SrgsCompiler.Graph:Add(System.Speech.Internal.SrgsCompiler.State):this]
+						;; size=139 bbWeight=2 PerfScore 86.50
+G_M49990_IG14:  ;; offset=0x03A8
+       mov      ecx, dword ptr [rbp-0x10C]
+       mov      rdx, gword ptr [r12+8*rcx+0x10]
+       mov      gword ptr [rbp-0x308], rdx
+       mov      rdx, gword ptr [rbp-0x308]
+						;; size=25 bbWeight=2 PerfScore 10.00
+G_M49990_IG15:  ;; offset=0x03C1
+       test     rdi, rdi
+       jne      G_M49990_IG19
+						;; size=9 bbWeight=4 PerfScore 5.00
+G_M49990_IG16:  ;; offset=0x03CA
+       movss    xmm6, dword ptr [reloc @RWD00]
+       jmp      G_M49990_IG20
+						;; size=13 bbWeight=2 PerfScore 10.00
+G_M49990_IG17:  ;; offset=0x03D7
+       mov      eax, dword ptr [r12+0x08]
+       mov      r8, qword ptr [rbp-0x2E0]
+       cmp      r8d, eax
+       jae      G_M49990_IG54
+       mov      qword ptr [rbp-0x2E0], r8
+       cmp      gword ptr [r12+8*r8+0x10], 0
+       jne      SHORT G_M49990_IG18
+       call     [CORINFO_HELP_READYTORUN_NONGCSTATIC_BASE]
+       mov      ecx, dword ptr [rax]
+       inc      ecx
+       mov      dword ptr [rbp-0x23C], ecx
+       mov      dword ptr [rax], ecx
+       call     [CORINFO_HELP_READYTORUN_NEW]
+       mov      gword ptr [rbp-0x360], rax
+       mov      rcx, rax
+       mov      rdx, gword ptr [rbp-0x2F8]
+       mov      r8d, dword ptr [rbp-0x23C]
+       mov      r9, qword ptr [rbp-0x2E0]
+       call     [System.Speech.Internal.SrgsCompiler.State:.ctor(System.Speech.Internal.SrgsCompiler.Rule,uint,int):this]
+       mov      rax, qword ptr [rbp-0x2E0]
+       lea      rcx, bword ptr [r12+8*rax+0x10]
+       mov      rdx, gword ptr [rbp-0x360]
+       call     [CORINFO_HELP_ASSIGN_REF]
+       mov      rax, qword ptr [rbp-0x2E0]
+       mov      rdx, gword ptr [r12+8*rax+0x10]
+       mov      rcx, gword ptr [rbx+0x18]
+       cmp      dword ptr [rcx], ecx
+       call     [System.Speech.Internal.SrgsCompiler.Graph:Add(System.Speech.Internal.SrgsCompiler.State):this]
+						;; size=146 bbWeight=2 PerfScore 87.50
+G_M49990_IG18:  ;; offset=0x0469
+       mov      r8, qword ptr [rbp-0x2E0]
+       mov      r9, gword ptr [r12+8*r8+0x10]
+       mov      rax, r9
+       mov      gword ptr [rbp-0x2F0], rax
+       jmp      G_M49990_IG12
+						;; size=27 bbWeight=2 PerfScore 12.50
+G_M49990_IG19:  ;; offset=0x0484
+       mov      r8, qword ptr [rbp-0x2E0]
+       cmp      r8d, dword ptr [rdi+0x08]
+       jae      G_M49990_IG54
+       mov      qword ptr [rbp-0x2E0], r8
+       movss    xmm6, dword ptr [rdi+4*r8+0x10]
+						;; size=31 bbWeight=2 PerfScore 20.00
+G_M49990_IG20:  ;; offset=0x04A3
+       mov      r10d, dword ptr [rbp-0x248]
+       test     r10b, 1
+       jne      G_M49990_IG28
+						;; size=17 bbWeight=4 PerfScore 9.00
+G_M49990_IG21:  ;; offset=0x04B4
+       mov      ecx, r10d
+       shr      ecx, 5
+       and      ecx, 0x3FFFFF
+       mov      r9d, ecx
+       sub      r9d, 0x3FFFFD
+       cmp      r9d, 2
+       ja       SHORT G_M49990_IG22
+       jmp      SHORT G_M49990_IG23
+						;; size=30 bbWeight=2 PerfScore 9.50
+G_M49990_IG22:  ;; offset=0x04D2
+       xor      ecx, ecx
+						;; size=2 bbWeight=2 PerfScore 0.50
+G_M49990_IG23:  ;; offset=0x04D4
+       mov      dword ptr [rbp-0x1AC], ecx
+       test     ecx, ecx
+       je       SHORT G_M49990_IG24
+       xor      r9d, r9d
+       mov      dword ptr [rbp-0x1B0], r9d
+       jmp      SHORT G_M49990_IG25
+						;; size=22 bbWeight=2 PerfScore 11.00
+G_M49990_IG24:  ;; offset=0x04EA
+       mov      r9d, r10d
+       shr      r9d, 5
+       and      r9d, 0x3FFFFF
+       mov      dword ptr [rbp-0x1B0], r9d
+						;; size=21 bbWeight=2 PerfScore 4.00
+G_M49990_IG25:  ;; offset=0x04FF
+       test     r10b, 8
+       je       SHORT G_M49990_IG26
+       mov      r11d, -1
+       mov      gword ptr [rbp-0x308], rdx
+       mov      dword ptr [rbp-0x1B4], r11d
+       jmp      SHORT G_M49990_IG27
+						;; size=28 bbWeight=2 PerfScore 11.00
+G_M49990_IG26:  ;; offset=0x051B
+       test     r10b, 16
+       setne    r11b
+       movzx    r11, r11b
+       mov      dword ptr [rbp-0x1B4], r11d
+       mov      gword ptr [rbp-0x308], rdx
+						;; size=26 bbWeight=2 PerfScore 7.00
+G_M49990_IG27:  ;; offset=0x0535
+       call     [CORINFO_HELP_READYTORUN_NEW]
+       mov      gword ptr [rbp-0x348], rax
+       mov      ecx, dword ptr [rbp-0x1AC]
+       mov      dword ptr [rsp+0x20], ecx
+       xor      ecx, ecx
+       mov      dword ptr [rsp+0x28], ecx
+       lea      rcx, bword ptr [rbx+0x74]
+       mov      bword ptr [rsp+0x30], rcx
+       mov      rcx, rax
+       mov      edx, dword ptr [rbp-0x1B0]
+       movaps   xmm2, xmm6
+       mov      r9d, dword ptr [rbp-0x1B4]
+       call     [System.Speech.Internal.SrgsCompiler.Arc:.ctor(int,float,int,int,int,byref):this]
+       mov      rax, gword ptr [rbp-0x348]
+       jmp      G_M49990_IG31
+						;; size=75 bbWeight=2 PerfScore 34.50
+G_M49990_IG28:  ;; offset=0x0580
+       mov      gword ptr [rbp-0x308], rdx
+       mov      ecx, r10d
+       shr      ecx, 5
+       mov      edx, ecx
+       and      edx, 0x3FFFFF
+       mov      rcx, gword ptr [rbx+0x20]
+       lea      r11, [(reloc 0x400000000043ad18)]      ; function address
+       cmp      dword ptr [rcx], ecx
+       call     [r11]<unknown method>
+       mov      gword ptr [rbp-0x310], rax
+       call     [CORINFO_HELP_READYTORUN_NEW]
+       mov      gword ptr [rbp-0x350], rax
+       mov      rcx, gword ptr [rbx+0x08]
+       mov      gword ptr [rbp-0x368], rcx
+       lea      rdx, bword ptr [rbx+0x74]
+       mov      bword ptr [rbp-0x370], rdx
+       call     [CORINFO_HELP_READYTORUN_NONGCSTATIC_BASE]
+       mov      ecx, dword ptr [rax]
+       lea      r8d, [rcx+0x01]
+       mov      dword ptr [rax], r8d
+       movss    dword ptr [rsp+0x20], xmm6
+       xor      r8d, r8d
+       mov      dword ptr [rsp+0x28], r8d
+						;; size=108 bbWeight=2 PerfScore 58.00
+G_M49990_IG29:  ;; offset=0x05EC
+       mov      gword ptr [rsp+0x30], r8
+       mov      dword ptr [rsp+0x38], ecx
+						;; size=9 bbWeight=2 PerfScore 4.00
+G_M49990_IG30:  ;; offset=0x05F5
+       mov      dword ptr [rsp+0x40], r8d
+       mov      rcx, bword ptr [rbp-0x370]
+       mov      bword ptr [rsp+0x48], rcx
+       mov      rcx, gword ptr [rbp-0x350]
+       mov      r8, gword ptr [rbp-0x310]
+       mov      r9, gword ptr [rbp-0x368]
+       xor      rdx, rdx
+       call     [System.Speech.Internal.SrgsCompiler.Arc:.ctor(System.String,System.Speech.Internal.SrgsCompiler.Rule,System.Speech.Internal.StringBlob,float,int,System.Speech.Internal.SrgsCompiler.Rule,uint,int,byref):this]
+       mov      rax, gword ptr [rbp-0x350]
+						;; size=53 bbWeight=2 PerfScore 20.50
+G_M49990_IG31:  ;; offset=0x062A
+       mov      gword ptr [rbp-0x300], rax
+       mov      rcx, rax
+       mov      rdx, gword ptr [rbp-0x2F0]
+       call     [System.Speech.Internal.SrgsCompiler.Arc:set_Start(System.Speech.Internal.SrgsCompiler.State):this]
+       mov      rcx, gword ptr [rbp-0x300]
+       mov      rdx, gword ptr [rbp-0x308]
+       call     [System.Speech.Internal.SrgsCompiler.Arc:set_End(System.Speech.Internal.SrgsCompiler.State):this]
+       mov      rax, gword ptr [rbp-0x2E8]
+       mov      r8d, dword ptr [rax+0x08]
+       mov      r10, qword ptr [rbp-0x2E0]
+       cmp      r10d, r8d
+       jae      G_M49990_IG54
+       mov      qword ptr [rbp-0x2E0], r10
+       lea      rcx, bword ptr [rax+8*r10+0x10]
+       mov      rdx, gword ptr [rbp-0x300]
+       call     [CORINFO_HELP_ASSIGN_REF]
+       xor      r8d, r8d
+       mov      r10d, dword ptr [rbp-0x248]
+       mov      rax, qword ptr [rbp-0x2E0]
+       inc      eax
+       cmp      r13d, eax
+       mov      dword ptr [rbp-0xCC], r8d
+       mov      dword ptr [rbp-0x244], r10d
+       jg       G_M49990_IG05
+						;; size=137 bbWeight=4 PerfScore 109.00
+G_M49990_IG32:  ;; offset=0x06B3
+       xor      edi, edi
+       mov      r12d, 1
+       cmp      r13d, r12d
+       jle      SHORT G_M49990_IG35
+						;; size=13 bbWeight=1 PerfScore 1.75
+G_M49990_IG33:  ;; offset=0x06C0
+       mov      eax, dword ptr [rsi+8*r12+0x10]
+       test     al, 4
+       jne      G_M49990_IG48
+						;; size=13 bbWeight=4 PerfScore 13.00
+G_M49990_IG34:  ;; offset=0x06CD
+       inc      r12d
+       cmp      r13d, r12d
+       jg       SHORT G_M49990_IG33
+						;; size=8 bbWeight=8 PerfScore 12.00
+G_M49990_IG35:  ;; offset=0x06D5
+       mov      byte  ptr [rbx+0x74], 1
+       test     r15, r15
+       je       SHORT G_M49990_IG37
+						;; size=9 bbWeight=1 PerfScore 2.25
+G_M49990_IG36:  ;; offset=0x06DE
+       mov      rcx, rbx
+       mov      rdx, r15
+       call     [System.Speech.Internal.SrgsCompiler.Backend:SetBasePath(System.String):this]
+						;; size=12 bbWeight=0.50 PerfScore 1.75
+G_M49990_IG37:  ;; offset=0x06EA
+       movups   xmm0, xmmword ptr [rbp-0x64]
+       movups   xmmword ptr [rbx+0x78], xmm0
+       movzx    rax, word  ptr [rbp-0x78]
+       mov      dword ptr [rbx+0x58], eax
+       mov      eax, dword ptr [rbp-0x7C]
+       mov      dword ptr [rbx+0x68], eax
+       mov      byte  ptr [rbx+0x75], 1
+						;; size=25 bbWeight=1 PerfScore 10.00
+G_M49990_IG38:  ;; offset=0x0703
+       movaps   xmm6, xmmword ptr [rsp+0x3B0]
+       add      rsp, 968
+       pop      rbx
+       pop      rsi
+       pop      rdi
+       pop      r12
+       pop      r13
+       pop      r14
+       pop      r15
+       pop      rbp
+       ret      
+						;; size=28 bbWeight=1 PerfScore 9.25
+G_M49990_IG39:  ;; offset=0x071F
+       call     [CORINFO_HELP_READYTORUN_NEW]
+       mov      gword ptr [rbp-0x380], rax
+       mov      rcx, rax
+       call     [<unknown method>]
+       mov      rax, gword ptr [rbp-0x378]
+       lea      rcx, bword ptr [rax+0x20]
+       mov      rdx, gword ptr [rbp-0x380]
+       call     [CORINFO_HELP_ASSIGN_REF]
+       mov      rax, gword ptr [rbp-0x320]
+						;; size=53 bbWeight=8 PerfScore 110.00
+G_M49990_IG40:  ;; offset=0x0754
+       mov      rcx, gword ptr [rbp-0x378]
+       mov      rcx, gword ptr [rcx+0x20]
+       mov      rdx, rax
+       lea      r11, [(reloc 0x40000000004395f0)]      ; function address
+       cmp      dword ptr [rcx], ecx
+       call     [r11]<unknown method>
+       mov      rax, gword ptr [rbp-0x320]
+       mov      ecx, dword ptr [rax+0x14]
+       and      ecx, 0x3FFFFF
+       cmp      ecx, dword ptr [rbp-0x2D4]
+       jae      G_M49990_IG54
+       mov      rdx, gword ptr [rbp-0x2E8]
+       mov      rcx, gword ptr [rdx+8*rcx+0x10]
+       mov      gword ptr [rbp-0x388], rcx
+       cmp      gword ptr [rcx+0x28], 0
+       je       SHORT G_M49990_IG42
+						;; size=80 bbWeight=16 PerfScore 384.00
+G_M49990_IG41:  ;; offset=0x07A4
+       mov      rax, gword ptr [rbp-0x320]
+       jmp      SHORT G_M49990_IG43
+						;; size=9 bbWeight=8 PerfScore 24.00
+G_M49990_IG42:  ;; offset=0x07AD
+       call     [CORINFO_HELP_READYTORUN_NEW]
+       mov      gword ptr [rbp-0x390], rax
+       mov      rcx, rax
+       call     [<unknown method>]
+       mov      rax, gword ptr [rbp-0x388]
+       lea      rcx, bword ptr [rax+0x28]
+       mov      rdx, gword ptr [rbp-0x390]
+       call     [CORINFO_HELP_ASSIGN_REF]
+       mov      rax, gword ptr [rbp-0x320]
+						;; size=53 bbWeight=8 PerfScore 110.00
+G_M49990_IG43:  ;; offset=0x07E2
+       mov      rcx, gword ptr [rbp-0x388]
+       mov      rcx, gword ptr [rcx+0x28]
+       mov      rdx, rax
+       lea      r11, [(reloc 0x40000000004395f0)]      ; function address
+       cmp      dword ptr [rcx], ecx
+       call     [r11]<unknown method>
+       mov      eax, dword ptr [rbp-0x250]
+       test     eax, eax
+       jg       G_M49990_IG51
+						;; size=40 bbWeight=16 PerfScore 192.00
+G_M49990_IG44:  ;; offset=0x080A
+       mov      rax, gword ptr [rbp-0x320]
+       add      rax, 16
+       mov      bword ptr [rbp-0x328], rax
+       mov      rcx, gword ptr [rbx+0x10]
+       mov      gword ptr [rbp-0x330], rcx
+       mov      gword ptr [rbp-0x3A0], rcx
+       mov      edx, dword ptr [rbp-0x254]
+       cmp      dword ptr [rcx], ecx
+       call     [<unknown method>]
+       mov      rdx, rax
+       mov      rcx, gword ptr [rbp-0x3A0]
+       cmp      dword ptr [rcx], ecx
+       call     [System.Speech.Internal.StringBlob:Find(System.String):int:this]
+       mov      edx, eax
+       test     edx, edx
+       jg       SHORT G_M49990_IG45
+       xor      eax, eax
+       jmp      SHORT G_M49990_IG46
+						;; size=78 bbWeight=8 PerfScore 194.00
+G_M49990_IG45:  ;; offset=0x0858
+       mov      rcx, gword ptr [rbp-0x330]
+       mov      rcx, gword ptr [rcx+0x18]
+       dec      edx
+       lea      r11, [(reloc 0x4000000000432610)]      ; function address
+       cmp      dword ptr [rcx], ecx
+       call     [r11]<unknown method>
+						;; size=25 bbWeight=8 PerfScore 78.00
+G_M49990_IG46:  ;; offset=0x0871
+       mov      rcx, bword ptr [rbp-0x328]
+       mov      dword ptr [rcx+0x14], eax
+						;; size=10 bbWeight=8 PerfScore 16.00
+G_M49990_IG47:  ;; offset=0x087B
+       inc      edi
+						;; size=2 bbWeight=16 PerfScore 4.00
+G_M49990_IG48:  ;; offset=0x087D
+       mov      eax, dword ptr [r14+0x08]
+       cmp      eax, edi
+       jle      G_M49990_IG34
+       mov      eax, edi
+       shl      rax, 5
+       mov      ecx, dword ptr [r14+rax+0x10]
+       and      ecx, 0x3FFFFF
+       cmp      rcx, r12
+       jne      G_M49990_IG34
+       lea      rax, bword ptr [r14+rax+0x10]
+       mov      ecx, dword ptr [rax+0x0C]
+       mov      dword ptr [rbp-0x250], ecx
+       mov      edx, dword ptr [rax+0x14]
+       mov      dword ptr [rbp-0x254], edx
+       movups   xmm0, xmmword ptr [rax]
+       movups   xmmword ptr [rbp-0x130], xmm0
+       movups   xmm0, xmmword ptr [rax+0x10]
+       movups   xmmword ptr [rbp-0x120], xmm0
+       call     [CORINFO_HELP_READYTORUN_NEW]
+       mov      gword ptr [rbp-0x320], rax
+       lea      rcx, bword ptr [rax+0x08]
+       mov      rdx, rbx
+       call     [CORINFO_HELP_ASSIGN_REF]
+       mov      rax, gword ptr [rbp-0x320]
+       lea      rcx, bword ptr [rax+0x10]
+       movups   xmm0, xmmword ptr [rbp-0x130]
+       movups   xmmword ptr [rcx], xmm0
+       movups   xmm0, xmmword ptr [rbp-0x120]
+       movups   xmmword ptr [rcx+0x10], xmm0
+       mov      r8d, dword ptr [rbp-0x250]
+       mov      dword ptr [rcx+0x0C], r8d
+       mov      r10d, dword ptr [rbp-0x254]
+       mov      dword ptr [rcx+0x14], r10d
+       mov      rcx, gword ptr [rbx+0x40]
+       mov      rdx, rax
+       lea      r11, [(reloc 0x4000000000439740)]      ; function address
+       cmp      dword ptr [rcx], ecx
+       call     [r11]<unknown method>
+       mov      rax, gword ptr [rbp-0x320]
+       mov      ecx, dword ptr [rax+0x10]
+       and      ecx, 0x3FFFFF
+       mov      rdx, gword ptr [rbp-0x2E8]
+       mov      r8d, dword ptr [rdx+0x08]
+       mov      dword ptr [rbp-0x2D4], r8d
+       cmp      ecx, r8d
+       jae      G_M49990_IG54
+       mov      rcx, gword ptr [rdx+8*rcx+0x10]
+       mov      gword ptr [rbp-0x378], rcx
+       cmp      gword ptr [rcx+0x20], 0
+						;; size=241 bbWeight=16 PerfScore 1136.00
+G_M49990_IG49:  ;; offset=0x096E
+       je       G_M49990_IG39
+						;; size=6 bbWeight=16 PerfScore 16.00
+G_M49990_IG50:  ;; offset=0x0974
+       mov      rax, gword ptr [rbp-0x320]
+       jmp      G_M49990_IG40
+						;; size=12 bbWeight=8 PerfScore 24.00
+G_M49990_IG51:  ;; offset=0x0980
+       mov      rcx, gword ptr [rbp-0x320]
+       lea      r8, bword ptr [rcx+0x10]
+       mov      bword ptr [rbp-0x338], r8
+       mov      rcx, gword ptr [rbx+0x10]
+       mov      gword ptr [rbp-0x340], rcx
+       mov      gword ptr [rbp-0x3A8], rcx
+       mov      edx, eax
+       cmp      dword ptr [rcx], ecx
+       call     [<unknown method>]
+       mov      rdx, rax
+       mov      rcx, gword ptr [rbp-0x3A8]
+       cmp      dword ptr [rcx], ecx
+       call     [System.Speech.Internal.StringBlob:Find(System.String):int:this]
+       mov      edx, eax
+       test     edx, edx
+       jg       SHORT G_M49990_IG52
+       xor      eax, eax
+       jmp      SHORT G_M49990_IG53
+						;; size=74 bbWeight=8 PerfScore 190.00
+G_M49990_IG52:  ;; offset=0x09CA
+       mov      rcx, gword ptr [rbp-0x340]
+       mov      rcx, gword ptr [rcx+0x18]
+       dec      edx
+       lea      r11, [(reloc 0x4000000000432610)]      ; function address
+       cmp      dword ptr [rcx], ecx
+       call     [r11]<unknown method>
+						;; size=25 bbWeight=8 PerfScore 78.00
+G_M49990_IG53:  ;; offset=0x09E3
+       mov      rcx, bword ptr [rbp-0x338]
+       mov      dword ptr [rcx+0x0C], eax
+       jmp      G_M49990_IG47
+						;; size=15 bbWeight=8 PerfScore 32.00
+G_M49990_IG54:  ;; offset=0x09F2
+       call     [CORINFO_HELP_RNGCHKFAIL]
+       int3     
+						;; size=7 bbWeight=0 PerfScore 0.00
+RWD00  	dd	3F800000h		;         1
+
+
+; Total bytes of code 2553, prolog size 79, PerfScore 3455.83, instruction count 520, allocated bytes for code 2553 (MethodHash=6aed3cb9) for method System.Speech.Internal.SrgsCompiler.Backend:InitFromBinaryGrammar(System.Speech.Internal.StreamMarshaler):this (FullOpts)
+; ============================================================
+
+Using jit(C:\Dotnet\runtime\artifacts\tests\coreclr\windows.x64.Checked\Tests\Core_Root\clrjit.dll) with input (C:\Dotnet\runtime\artifacts\spmi\mch\ecc9bc7e-9223-4af6-af2f-b63e89c09279.windows.x64\libraries.crossgen2.windows.x64.checked.mch)
+ indexCount=1 (260405)
+Jit startup took 5.095600ms
+Loaded 1  Jitted 1  FailedCompile 0 Excluded 0 Missing 0
+Total time: 889.994900ms
